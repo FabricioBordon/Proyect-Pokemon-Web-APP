@@ -81,3 +81,15 @@ insert into pokemons values (4, 'Charmander', 'Pokemon de fuego', 'https://asset
 insert into pokemons values (11, 'Butterfree', 'mariposa', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png', 1, 1, null, 1)
 insert into pokemons values (15, 'Pidgey', 'Voladorrrrr', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png', 2, 1, null, 1)
 
+Select Numero, Nombre, P.Descripcion, UrlImagen, E.Descripcion Tipo, D.Descripcion Debilidad, P.IdTipo, P.IdDebilidad, P.Id From POKEMONS P, ELEMENTOS E, ELEMENTOS D Where E.Id = P.IdTipo And D.Id = P.IdDebilidad And P.Activo = 1 
+
+--procedimiento
+
+CREATE PROCEDURE storedListar as
+
+Select Numero, Nombre, P.Descripcion, UrlImagen,
+E.Descripcion Tipo, D.Descripcion Debilidad, P.IdTipo, P.IdDebilidad,
+P.Id From POKEMONS P, ELEMENTOS E, 
+ELEMENTOS D Where E.Id = P.IdTipo And D.Id = P.IdDebilidad And P.Activo = 1 
+
+exec storedListar
